@@ -1,0 +1,93 @@
+1   1   1001     FALSE     
+1   7   1002     TEST      
+1   12  1003     ON        
+1   15  1004     ILLEGAL   
+1   23  1005     SYMBOLS   
+1   31  1006     AND       
+1   35  1007     DIVIDERS  
+2   1   1008     I         
+"Lexer: Error (line 2, column 2): Illegal charachter 'l' detected"
+"Lexer: Error (line 2, column 3): Illegal charachter 'l' detected"
+"Lexer: Error (line 2, column 4): Illegal charachter 'e' detected"
+"Lexer: Error (line 2, column 5): Illegal charachter 'g' detected"
+"Lexer: Error (line 2, column 6): Illegal charachter 'a' detected"
+"Lexer: Error (line 2, column 7): Illegal charachter 'l' detected"
+2   9   1009     SYMBOL    
+3   1   501      55        
+3   4   502      65        
+"Lexer: Error (line 3, column 6): Illegal charachter '^' detected"
+"Lexer: Error (line 3, column 7): Illegal charachter '^' detected"
+"Lexer: Error (line 3, column 9): Illegal charachter '^' detected"
+3   10  1010     G         
+"Lexer: Error (line 3, column 11): Illegal charachter '^' detected"
+3   12  1011     F         
+4   1   46       .         
+4   2   46       .         
+4   3   46       .         
+4   4   59       ;         
+4   5   59       ;         
+"Lexer: Error (line 4, column 6): Illegal charachter ':' detected"
+"Lexer: Error (line 4, column 7): Illegal charachter '(' detected"
+"Lexer: Error (line 4, column 8): Illegal charachter '(' detected"
+"Lexer: Error (line 4, column 9): Illegal charachter ')' detected"
+"Lexer: Error (line 4, column 10): Illegal charachter '(' detected"
+"Lexer: Error (line 4, column 11): Illegal charachter ')' detected"
+"Lexer: Error (line 4, column 12): Illegal charachter '(' detected"
+"Lexer: Error (line 4, column 13): Illegal charachter ')' detected"
+"Lexer: Error (line 4, column 14): Illegal charachter ')' detected"
+4   15  59       ;         
+4   16  59       ;         
+"Lexer: Error (line 4, column 17): Illegal charachter ':' detected"
+4   18  61       =         
+"Lexer: Error (line 4, column 19): Illegal charachter ':' detected"
+4   20  61       =         
+"Lexer: Error (line 4, column 21): Illegal charachter ':' detected"
+"Lexer: Error (line 4, column 22): Illegal charachter ':' detected"
+"Lexer: Error (line 4, column 23): Illegal charachter ':' detected"
+4   24  61       =         
+4   25  59       ;         
+4   26  59       ;         
+"Lexer: Error (line 4, column 27): Illegal charachter ':' detected"
+4   28  46       .         
+6   1   408      IF        
+6   4   409      THEN      
+"Lexer: Error (line 6, column 8): Illegal charachter ',' detected"
+7   1   410      ELSE      
+7   6   410      ELSE      
+9   1   1009     SYMBOL    
+"Lexer: Error (line 9, column 8): Illegal charachter 'f' detected"
+9   10  61       =         
+9   12  503      3445      
+"Lexer: Error (line 9, column 16): Illegal charachter ',' detected"
+9   17  504      4         
+"Lexer: Error (line 9, column 18): Illegal charachter '/' detected"
+9   19  504      4         
+9   20  46       .         
+9   21  505      5         
+9   22  59       ;         
+"Lexer: Error (line 11, column 1): Illegal charachter 'n' detected"
+"Lexer: Error (line 11, column 2): Illegal charachter 'o' detected"
+"Lexer: Error (line 11, column 3): Illegal charachter 't' detected"
+"Lexer: Error (line 11, column 5): Illegal charachter 'o' detected"
+"Lexer: Error (line 11, column 6): Illegal charachter 'k' detected"
+"Lexer: Error (line 11, column 7): Illegal charachter '(' detected"
+
+Table of constants:
+501   55        
+502   65        
+503   3445      
+504   4         
+505   5         
+
+Table of identificators:
+1001  FALSE     
+1002  TEST      
+1003  ON        
+1004  ILLEGAL   
+1005  SYMBOLS   
+1006  AND       
+1007  DIVIDERS  
+1008  I         
+1009  SYMBOL    
+1010  G         
+1011  F         

@@ -1,0 +1,29 @@
+2   1   401      PROGRAM   
+2   9   501      0         
+2   10  1001     G0001     
+2   15  59       ;         
+3   1   411      CONST     
+4   1   501      0         
+4   2   1001     G0001     
+4   8   61       =         
+4   11  502      4         
+4   12  59       ;         
+5   1   402      BEGIN     
+6   1   403      END       
+6   4   46       .         
+
+Table of constants:
+501   0         
+502   4         
+
+Table of identificators:
+1001  G0001     
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........<error>
+"Parser: Error (line 2, column 9): 'identifier' expected  but '0' found"

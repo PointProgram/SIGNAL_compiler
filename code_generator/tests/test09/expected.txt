@@ -1,0 +1,88 @@
+2   1   401      PROGRAM   
+2   9   1001     G0001     
+2   14  59       ;         
+3   1   411      CONST     
+3   7   1002     AFF       
+3   11  61       =         
+3   13  501      43        
+3   15  59       ;         
+4   1   1003     A0        
+4   4   61       =         
+4   6   502      34        
+4   8   59       ;         
+5   1   402      BEGIN     
+6   1   405      WHILE     
+6   8   1003     A0        
+6   11  301      <=        
+6   14  503      44        
+7   1   406      DO        
+8   1   407      ENDWHILE  
+8   9   59       ;         
+9   1   403      END       
+9   4   46       .         
+10  1   403      END       
+10  4   46       .         
+
+Table of constants:
+501   43        
+502   34        
+503   44        
+
+Table of identificators:
+1001  G0001     
+1002  AFF       
+1003  A0        
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0001
+....59 ;
+....<block>
+......<constant-declarations>
+........411 CONST
+........<constant-declarations-list>
+..........<constant-declaration>
+............<identifier>
+..............1002 AFF
+............61 =
+............<unsigned-integer>
+..............501 43
+............59 ;
+..........<constant-declarations-list>
+............<constant-declaration><constant-declaration>
+..............<identifier>
+................1003 A0
+..............61 =
+..............<unsigned-integer>
+................502 34
+..............59 ;
+............<constant-declaration><constant-declaration><empty>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........405 WHILE
+..........<conditional-expression>
+............<expression>
+..............<variable-identifier>
+................<identifier>
+..................1003 A0
+............<comparassion operator>
+..............301 <=
+............<expression>
+..............<unsigned-integer>
+................503 44
+..........406 DO
+..........<statement-list>
+............<empty>
+..........407 ENDWHILE
+..........59 ;
+........<statement-list>
+..........<statement><empty>
+......403 END
+....46 .
+....<error>
+"Parser: Error (line 10, column 1): 'EOF' expected  but 'END' found"

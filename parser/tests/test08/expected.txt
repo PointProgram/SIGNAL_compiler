@@ -1,0 +1,57 @@
+2   1   401      PROGRAM   
+2   9   1001     G0001     
+2   14  59       ;         
+3   1   402      BEGIN     
+4   1   405      WHILE     
+4   8   1002     A0        
+4   11  301      <=        
+4   14  501      44        
+5   1   406      DO        
+6   1   407      ENDWHILE  
+6   9   59       ;         
+7   1   403      END       
+7   4   46       .         
+8   1   403      END       
+8   4   46       .         
+
+Table of constants:
+501   44        
+
+Table of identificators:
+1001  G0001     
+1002  A0        
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0001
+....59 ;
+....<block>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........405 WHILE
+..........<conditional-expression>
+............<expression>
+..............<variable-identifier>
+................<identifier>
+..................1002 A0
+............<comparassion operator>
+..............301 <=
+............<expression>
+..............<unsigned-integer>
+................501 44
+..........406 DO
+..........<statement-list>
+............<empty>
+..........407 ENDWHILE
+..........59 ;
+........<statement-list>
+..........<empty>
+......403 END
+....46 .
+....<error>
+"Parser: Error (line 8, column 1): 'EOF' expected  but 'END' found"

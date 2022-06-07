@@ -1,0 +1,54 @@
+2   1   401      PROGRAM   
+2   9   1001     TEST4     
+3   1   402      BEGIN     
+4   1   405      WHILE     
+4   8   1002     A0        
+4   11  301      <=        
+4   14  501      44        
+5   1   406      DO        
+6   1   408      IF        
+6   4   501      44        
+6   7   302      <>        
+6   10  501      44        
+7   1   409      THEN      
+8   1   405      WHILE     
+8   7   1003     GPR       
+8   11  61       =         
+8   13  1002     A0        
+9   1   406      DO        
+10  1   407      ENDWHILE  
+10  9   59       ;         
+11  1   410      ELSE      
+12  1   405      WHILE     
+12  7   502      3         
+12  9   62       >         
+12  11  503      2         
+13  1   406      DO        
+14  1   407      ENDWHILE  
+14  9   59       ;         
+15  1   404      ENDIF     
+15  6   59       ;         
+16  1   407      ENDWHILE  
+16  9   59       ;         
+17  1   403      END       
+17  4   46       .         
+
+Table of constants:
+501   44        
+502   3         
+503   2         
+
+Table of identificators:
+1001  TEST4     
+1002  A0        
+1003  GPR       
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 TEST4
+....<error>
+"Parser: Error (line 3, column 1): ';' expected  but 'BEGIN' found"

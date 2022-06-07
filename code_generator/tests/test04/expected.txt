@@ -1,0 +1,258 @@
+2   1   401      PROGRAM   
+2   9   1001     TEST4     
+2   14  59       ;         
+3   1   411      CONST     
+4   1   1002     A0        
+4   4   61       =         
+4   6   501      3         
+4   7   59       ;         
+5   1   1003     GPR       
+5   5   61       =         
+5   7   502      45        
+5   9   59       ;         
+6   1   402      BEGIN     
+7   1   405      WHILE     
+7   8   1002     A0        
+7   11  301      <=        
+7   14  503      44        
+8   1   406      DO        
+9   1   408      IF        
+9   4   503      44        
+9   7   302      <>        
+9   10  503      44        
+10  1   409      THEN      
+11  2   405      WHILE     
+11  8   1003     GPR       
+11  12  61       =         
+11  14  1002     A0        
+12  2   406      DO        
+13  2   407      ENDWHILE  
+13  10  59       ;         
+14  1   404      ENDIF     
+14  6   59       ;         
+15  1   408      IF        
+15  4   503      44        
+15  7   302      <>        
+15  10  503      44        
+16  1   409      THEN      
+17  2   405      WHILE     
+17  8   1003     GPR       
+17  12  61       =         
+17  14  1002     A0        
+18  2   406      DO        
+19  2   407      ENDWHILE  
+19  10  59       ;         
+20  1   404      ENDIF     
+20  6   59       ;         
+21  1   407      ENDWHILE  
+21  9   59       ;         
+22  1   403      END       
+22  4   46       .         
+
+Table of constants:
+501   3         
+502   45        
+503   44        
+
+Table of identificators:
+1001  TEST4     
+1002  A0        
+1003  GPR       
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 TEST4
+....59 ;
+....<block>
+......<constant-declarations>
+........411 CONST
+........<constant-declarations-list>
+..........<constant-declaration>
+............<identifier>
+..............1002 A0
+............61 =
+............<unsigned-integer>
+..............501 3
+............59 ;
+..........<constant-declarations-list>
+............<constant-declaration><constant-declaration>
+..............<identifier>
+................1003 GPR
+..............61 =
+..............<unsigned-integer>
+................502 45
+..............59 ;
+............<constant-declaration><constant-declaration><empty>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........405 WHILE
+..........<conditional-expression>
+............<expression>
+..............<variable-identifier>
+................<identifier>
+..................1002 A0
+............<comparassion operator>
+..............301 <=
+............<expression>
+..............<unsigned-integer>
+................503 44
+..........406 DO
+..........<statement-list>
+............<statement>
+..............<condition-statement>
+................<incomplete-condition-statement>
+..................408 IF
+..................<conditional-expression>
+....................<expression>
+......................<unsigned-integer>
+........................503 44
+....................<comparassion operator>
+......................302 <>
+....................<expression>
+......................<unsigned-integer>
+........................503 44
+..................409 THEN
+..................<statement-list>
+....................<statement>
+......................405 WHILE
+......................<conditional-expression>
+........................<expression>
+..........................<variable-identifier>
+............................<identifier>
+..............................1003 GPR
+........................<comparassion operator>
+..........................61 =
+........................<expression>
+..........................<variable-identifier>
+............................<identifier>
+..............................1002 A0
+......................406 DO
+......................<statement-list>
+........................<empty>
+......................407 ENDWHILE
+......................59 ;
+....................<statement-list>
+......................<statement><empty>
+................<alternative-part>
+..................<empty>
+..............404 ENDIF
+..............59 ;
+............<statement-list>
+..............<statement><statement>
+................<condition-statement>
+..................<incomplete-condition-statement>
+....................408 IF
+....................<conditional-expression>
+......................<expression>
+........................<unsigned-integer>
+..........................503 44
+......................<comparassion operator>
+........................302 <>
+......................<expression>
+........................<unsigned-integer>
+..........................503 44
+....................409 THEN
+....................<statement-list>
+......................<statement>
+........................405 WHILE
+........................<conditional-expression>
+..........................<expression>
+............................<variable-identifier>
+..............................<identifier>
+................................1003 GPR
+..........................<comparassion operator>
+............................61 =
+..........................<expression>
+............................<variable-identifier>
+..............................<identifier>
+................................1002 A0
+........................406 DO
+........................<statement-list>
+..........................<empty>
+........................407 ENDWHILE
+........................59 ;
+......................<statement-list>
+........................<statement><empty>
+..................<alternative-part>
+....................<empty>
+................404 ENDIF
+................59 ;
+..............<statement-list>
+................<statement><statement><empty>
+..........407 ENDWHILE
+..........59 ;
+........<statement-list>
+..........<statement><empty>
+......403 END
+....46 .
+
+
+;TEST4
+DATA SEGMENT
+;CONST
+;A0 = 3 ; 
+	A0 DB 3
+;GPR = 45 ; 
+	GPR DB 45
+DATA ENDS
+
+CODE SEGMENT
+	ASSUME DS: DATA CS:CODE
+START:
+	MOV AX, DATA
+	MOV DS, AX
+	XOR AX, AX
+CALL TEST4
+
+
+?L1: NOP
+	MOV AX, A0
+	MOV BX, 44
+	CMP AX, BX
+	JG ?L2
+
+	MOV AX, 44
+	MOV BX, 44
+	CMP AX, BX
+	JE ?L3
+
+?L4: NOP
+	MOV AX, GPR
+	MOV BX, A0
+	CMP AX, BX
+	JNE ?L5
+	NOP
+	JMP ?L4
+?L5: NOP
+	NOP
+?L3: NOP
+
+	MOV AX, 44
+	MOV BX, 44
+	CMP AX, BX
+	JE ?L6
+
+?L7: NOP
+	MOV AX, GPR
+	MOV BX, A0
+	CMP AX, BX
+	JNE ?L8
+	NOP
+	JMP ?L7
+?L8: NOP
+	NOP
+?L6: NOP
+	NOP
+	JMP ?L1
+?L2: NOP
+	NOP
+RET
+MOV AX, 4C00H
+INT 21H
+CODE ENDS
+END START

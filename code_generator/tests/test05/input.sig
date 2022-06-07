@@ -1,0 +1,17 @@
+(*+  TEST5 - loop sequence +*)
+PROGRAM WJH;
+CONST
+A0 = 1;
+A1 = 2;
+A2 = 3;
+BEGIN
+WHILE  A0 <= 44
+DO
+ENDWHILE;
+WHILE  A1 <= 44
+DO
+ENDWHILE;
+WHILE  A2 <= 44
+DO
+ENDWHILE;
+END.

@@ -1,0 +1,235 @@
+2   1   401      PROGRAM   
+2   9   1001     G0002     
+2   14  59       ;         
+3   1   411      CONST     
+3   7   1002     A3        
+3   10  61       =         
+3   12  501      43        
+3   14  59       ;         
+4   1   1003     A0        
+4   4   61       =         
+4   6   502      34        
+4   8   59       ;         
+5   1   402      BEGIN     
+6   1   408      IF        
+6   4   503      3         
+6   6   301      <=        
+6   9   1002     A3        
+7   1   409      THEN      
+8   2   410      ELSE      
+9   2   405      WHILE     
+9   8   503      3         
+9   10  62       >         
+9   12  504      2         
+10  2   406      DO        
+11  2   407      ENDWHILE  
+11  10  59       ;         
+12  1   404      ENDIF     
+12  6   59       ;         
+13  1   408      IF        
+13  4   503      3         
+13  6   301      <=        
+13  9   1002     A3        
+14  1   409      THEN      
+15  2   410      ELSE      
+16  2   405      WHILE     
+16  8   503      3         
+16  10  62       >         
+16  12  504      2         
+17  2   406      DO        
+18  2   407      ENDWHILE  
+18  10  59       ;         
+19  1   404      ENDIF     
+19  6   59       ;         
+20  1   403      END       
+20  4   46       .         
+
+Table of constants:
+501   43        
+502   34        
+503   3         
+504   2         
+
+Table of identificators:
+1001  G0002     
+1002  A3        
+1003  A0        
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0002
+....59 ;
+....<block>
+......<constant-declarations>
+........411 CONST
+........<constant-declarations-list>
+..........<constant-declaration>
+............<identifier>
+..............1002 A3
+............61 =
+............<unsigned-integer>
+..............501 43
+............59 ;
+..........<constant-declarations-list>
+............<constant-declaration><constant-declaration>
+..............<identifier>
+................1003 A0
+..............61 =
+..............<unsigned-integer>
+................502 34
+..............59 ;
+............<constant-declaration><constant-declaration><empty>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........<condition-statement>
+............<incomplete-condition-statement>
+..............408 IF
+..............<conditional-expression>
+................<expression>
+..................<unsigned-integer>
+....................503 3
+................<comparassion operator>
+..................301 <=
+................<expression>
+..................<variable-identifier>
+....................<identifier>
+......................1002 A3
+..............409 THEN
+..............<statement-list>
+................<empty>
+............<alternative-part>
+..............410 ELSE
+..............<statement-list>
+................<statement>
+..................405 WHILE
+..................<conditional-expression>
+....................<expression>
+......................<unsigned-integer>
+........................503 3
+....................<comparassion operator>
+......................62 >
+....................<expression>
+......................<unsigned-integer>
+........................504 2
+..................406 DO
+..................<statement-list>
+....................<empty>
+..................407 ENDWHILE
+..................59 ;
+................<statement-list>
+..................<statement><empty>
+..........404 ENDIF
+..........59 ;
+........<statement-list>
+..........<statement><statement>
+............<condition-statement>
+..............<incomplete-condition-statement>
+................408 IF
+................<conditional-expression>
+..................<expression>
+....................<unsigned-integer>
+......................503 3
+..................<comparassion operator>
+....................301 <=
+..................<expression>
+....................<variable-identifier>
+......................<identifier>
+........................1002 A3
+................409 THEN
+................<statement-list>
+..................<empty>
+..............<alternative-part>
+................410 ELSE
+................<statement-list>
+..................<statement>
+....................405 WHILE
+....................<conditional-expression>
+......................<expression>
+........................<unsigned-integer>
+..........................503 3
+......................<comparassion operator>
+........................62 >
+......................<expression>
+........................<unsigned-integer>
+..........................504 2
+....................406 DO
+....................<statement-list>
+......................<empty>
+....................407 ENDWHILE
+....................59 ;
+..................<statement-list>
+....................<statement><empty>
+............404 ENDIF
+............59 ;
+..........<statement-list>
+............<statement><statement><empty>
+......403 END
+....46 .
+
+
+;G0002
+DATA SEGMENT
+;CONST
+;A3 = 43 ; 
+	A3 DB 43
+;A0 = 34 ; 
+	A0 DB 34
+DATA ENDS
+
+CODE SEGMENT
+	ASSUME DS: DATA CS:CODE
+START:
+	MOV AX, DATA
+	MOV DS, AX
+	XOR AX, AX
+CALL G0002
+
+
+	MOV AX, 3
+	MOV BX, A3
+	CMP AX, BX
+	JG ?L1
+	NOP
+	JMP ?L2
+?L1: NOP
+
+?L3: NOP
+	MOV AX, 3
+	MOV BX, 2
+	CMP AX, BX
+	JLE ?L4
+	NOP
+	JMP ?L3
+?L4: NOP
+	NOP
+?L2: NOP
+
+	MOV AX, 3
+	MOV BX, A3
+	CMP AX, BX
+	JG ?L5
+	NOP
+	JMP ?L6
+?L5: NOP
+
+?L7: NOP
+	MOV AX, 3
+	MOV BX, 2
+	CMP AX, BX
+	JLE ?L8
+	NOP
+	JMP ?L7
+?L8: NOP
+	NOP
+?L6: NOP
+	NOP
+RET
+MOV AX, 4C00H
+INT 21H
+CODE ENDS
+END START

@@ -1,0 +1,27 @@
+1   1   1001     TRUE      
+1   6   1002     TEST      
+1   11  1003     ON        
+1   14  1004     COMMENTS  
+2   1   1005     COMMENT   
+2   9   1006     TABLE     
+2   15  1002     TEST      
+2   20  61       =         
+2   22  501      455       
+6   5   1007     TOC       
+7   7   1007     TOC       
+18  1   1008     ALL       
+18  5   1009     GOOD      
+
+Table of constants:
+501   455       
+
+Table of identificators:
+1001  TRUE      
+1002  TEST      
+1003  ON        
+1004  COMMENTS  
+1005  COMMENT   
+1006  TABLE     
+1007  TOC       
+1008  ALL       
+1009  GOOD      

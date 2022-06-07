@@ -1,0 +1,14 @@
+(*+  TEST6 - wrong keyword +*)
+PROGRAM G0001;
+BEGN
+WHILE  A0 <= 44
+(*DO*)
+IF 44 <> 44
+THEN
+WHILE GPR = A0
+DO
+ENDWHILE;
+ELSE
+ENDIF;
+ENDWHILE;
+END.

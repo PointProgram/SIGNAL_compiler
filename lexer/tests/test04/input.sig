@@ -1,0 +1,9 @@
+TRUE TEST ON DIVIDERS
+
+MULTIDIVIDERS CHECK
+<===><>>=<><=><<<>=
+
+IF A <=<==> B
+THEN
+454 < 453 == 5 > 4
+ENDIF

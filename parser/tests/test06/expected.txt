@@ -1,0 +1,48 @@
+2   1   401      PROGRAM   
+2   9   1001     G0001     
+2   14  59       ;         
+3   1   1002     BEGN      
+4   1   405      WHILE     
+4   8   1003     A0        
+4   11  301      <=        
+4   14  501      44        
+6   1   408      IF        
+6   4   501      44        
+6   7   302      <>        
+6   10  501      44        
+7   1   409      THEN      
+8   1   405      WHILE     
+8   7   1004     GPR       
+8   11  61       =         
+8   13  1003     A0        
+9   1   406      DO        
+10  1   407      ENDWHILE  
+10  9   59       ;         
+11  1   410      ELSE      
+12  1   404      ENDIF     
+12  6   59       ;         
+13  1   407      ENDWHILE  
+13  9   59       ;         
+14  1   403      END       
+14  4   46       .         
+
+Table of constants:
+501   44        
+
+Table of identificators:
+1001  G0001     
+1002  BEGN      
+1003  A0        
+1004  GPR       
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0001
+....59 ;
+....<block>
+......<error>
+"Parser: Error (line 3, column 1): 'BEGIN' expected  but 'BEGN' found"

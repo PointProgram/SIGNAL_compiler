@@ -1,0 +1,85 @@
+2   1   401      PROGRAM   
+2   9   1001     G0002     
+2   14  59       ;         
+3   1   402      BEGIN     
+4   1   408      IF        
+4   4   501      3         
+4   6   301      <=        
+4   9   1002     A3        
+5   1   409      THEN      
+6   1   410      ELSE      
+7   1   405      WHILE     
+7   7   501      3         
+7   9   62       >         
+7   11  502      2         
+8   1   406      DO        
+9   1   407      ENDWHILE  
+9   9   59       ;         
+10  1   404      ENDIF     
+10  6   59       ;         
+11  1   403      END       
+11  4   46       .         
+
+Table of constants:
+501   3         
+502   2         
+
+Table of identificators:
+1001  G0002     
+1002  A3        
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0002
+....59 ;
+....<block>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........<condition-statement>
+............<incomplete-condition-statement>
+..............408 IF
+..............<conditional-expression>
+................<expression>
+..................<unsigned-integer>
+....................501 3
+................<comparassion operator>
+..................301 <=
+................<expression>
+..................<variable-identifier>
+....................<identifier>
+......................1002 A3
+..............409 THEN
+..............<statement-list>
+................<empty>
+............<alternative-part>
+..............410 ELSE
+..............<statement-list>
+................<statement>
+..................405 WHILE
+..................<conditional-expression>
+....................<expression>
+......................<unsigned-integer>
+........................501 3
+....................<comparassion operator>
+......................62 >
+....................<expression>
+......................<unsigned-integer>
+........................502 2
+..................406 DO
+..................<statement-list>
+....................<empty>
+..................407 ENDWHILE
+..................59 ;
+................<statement-list>
+..................<empty>
+..........404 ENDIF
+..........59 ;
+........<statement-list>
+..........<empty>
+......403 END
+....46 .

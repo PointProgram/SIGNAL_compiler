@@ -1,0 +1,14 @@
+1   1   1001     FALSE     
+1   7   1002     TEST      
+1   12  1003     ON        
+1   15  1004     COMMENTS  
+6   1   403      END       
+"Lexer: Error (line 7, column 2): Expected '*)' but end of file has occured"
+
+Table of constants:
+
+Table of identificators:
+1001  FALSE     
+1002  TEST      
+1003  ON        
+1004  COMMENTS  

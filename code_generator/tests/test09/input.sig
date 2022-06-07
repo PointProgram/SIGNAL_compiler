@@ -1,0 +1,10 @@
+(*+  TEST8 - END not acually end +*)
+PROGRAM G0001;
+CONST AFF = 43;
+A0 = 34;
+BEGIN
+WHILE  A0 <= 44
+DO
+ENDWHILE;
+END.
+END.

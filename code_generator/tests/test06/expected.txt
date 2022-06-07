@@ -1,0 +1,152 @@
+2   1   401      PROGRAM   
+2   9   1001     G0001     
+2   14  59       ;         
+3   1   402      BEGIN     
+4   1   405      WHILE     
+4   8   501      1         
+4   10  301      <=        
+4   13  502      44        
+5   1   406      DO        
+6   2   405      WHILE     
+6   9   503      2         
+6   11  301      <=        
+6   14  502      44        
+7   2   406      DO        
+8   3   405      WHILE     
+8   10  504      3         
+8   12  301      <=        
+8   15  502      44        
+9   3   406      DO        
+10  3   407      ENDWHILE  
+10  11  59       ;         
+11  2   407      ENDWHILE  
+11  10  59       ;         
+12  1   407      ENDWHILE  
+12  9   59       ;         
+14  1   403      END       
+14  4   46       .         
+
+Table of constants:
+501   1         
+502   44        
+503   2         
+504   3         
+
+Table of identificators:
+1001  G0001     
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0001
+....59 ;
+....<block>
+......<constant-declarations>
+........<empty>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........405 WHILE
+..........<conditional-expression>
+............<expression>
+..............<unsigned-integer>
+................501 1
+............<comparassion operator>
+..............301 <=
+............<expression>
+..............<unsigned-integer>
+................502 44
+..........406 DO
+..........<statement-list>
+............<statement>
+..............405 WHILE
+..............<conditional-expression>
+................<expression>
+..................<unsigned-integer>
+....................503 2
+................<comparassion operator>
+..................301 <=
+................<expression>
+..................<unsigned-integer>
+....................502 44
+..............406 DO
+..............<statement-list>
+................<statement>
+..................405 WHILE
+..................<conditional-expression>
+....................<expression>
+......................<unsigned-integer>
+........................504 3
+....................<comparassion operator>
+......................301 <=
+....................<expression>
+......................<unsigned-integer>
+........................502 44
+..................406 DO
+..................<statement-list>
+....................<empty>
+..................407 ENDWHILE
+..................59 ;
+................<statement-list>
+..................<statement><empty>
+..............407 ENDWHILE
+..............59 ;
+............<statement-list>
+..............<statement><empty>
+..........407 ENDWHILE
+..........59 ;
+........<statement-list>
+..........<statement><empty>
+......403 END
+....46 .
+
+
+;G0001
+DATA SEGMENT
+	NOP
+DATA ENDS
+
+CODE SEGMENT
+	ASSUME DS: DATA CS:CODE
+START:
+	MOV AX, DATA
+	MOV DS, AX
+	XOR AX, AX
+CALL G0001
+
+
+?L1: NOP
+	MOV AX, 1
+	MOV BX, 44
+	CMP AX, BX
+	JG ?L2
+
+?L3: NOP
+	MOV AX, 2
+	MOV BX, 44
+	CMP AX, BX
+	JG ?L4
+
+?L5: NOP
+	MOV AX, 3
+	MOV BX, 44
+	CMP AX, BX
+	JG ?L6
+	NOP
+	JMP ?L5
+?L6: NOP
+	NOP
+	JMP ?L3
+?L4: NOP
+	NOP
+	JMP ?L1
+?L2: NOP
+	NOP
+RET
+MOV AX, 4C00H
+INT 21H
+CODE ENDS
+END START

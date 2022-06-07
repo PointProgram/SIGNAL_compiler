@@ -1,0 +1,14 @@
+(*+  TEST6 - loop nested +*)
+PROGRAM G0001;
+BEGIN
+WHILE  1 <= 44
+DO
+	WHILE  2 <= 44
+	DO
+		WHILE  3 <= 44
+		DO
+		ENDWHILE;
+	ENDWHILE;
+ENDWHILE;
+
+END.

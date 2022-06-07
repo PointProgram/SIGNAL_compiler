@@ -1,0 +1,20 @@
+(*+  TEST3 - cond sequence +*)
+PROGRAM G0002;
+CONST A3 = 43;
+A0 = 34;
+BEGIN
+IF 3 <= A3
+THEN
+	ELSE
+	WHILE 3 > 2
+	DO
+	ENDWHILE;
+ENDIF;
+IF 3 <= A3
+THEN
+	ELSE
+	WHILE 3 > 2
+	DO
+	ENDWHILE;
+ENDIF;
+END.

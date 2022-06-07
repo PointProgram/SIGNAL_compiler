@@ -1,0 +1,47 @@
+2   1   401      PROGRAM   
+2   9   1001     G0001     
+2   14  59       ;         
+3   1   402      BEGIN     
+4   1   403      END       
+4   4   46       .         
+
+Table of identificators:
+1001  G0001     
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 G0001
+....59 ;
+....<block>
+......<constant-declarations>
+........<empty>
+......402 BEGIN
+......<statement-list>
+........<empty>
+......403 END
+....46 .
+
+
+;G0001
+DATA SEGMENT
+	NOP
+DATA ENDS
+
+CODE SEGMENT
+	ASSUME DS: DATA CS:CODE
+START:
+	MOV AX, DATA
+	MOV DS, AX
+	XOR AX, AX
+CALL G0001
+
+NOP
+RET
+MOV AX, 4C00H
+INT 21H
+CODE ENDS
+END START

@@ -1,0 +1,49 @@
+2   1   401      PROGRAM   
+2   9   501      0         
+2   10  1001     G0001     
+2   15  59       ;         
+3   1   402      BEGIN     
+4   1   405      WHILE     
+4   8   1002     A0        
+4   11  301      <=        
+4   14  502      44        
+4   16  1003     F         
+5   1   406      DO        
+6   1   408      IF        
+6   4   502      44        
+6   7   302      <>        
+6   10  502      44        
+7   1   409      THEN      
+8   1   405      WHILE     
+8   7   1004     GPR       
+8   11  61       =         
+8   13  1002     A0        
+9   1   406      DO        
+10  1   407      ENDWHILE  
+10  9   59       ;         
+11  1   410      ELSE      
+12  1   404      ENDIF     
+12  6   59       ;         
+13  1   407      ENDWHILE  
+13  9   59       ;         
+14  1   403      END       
+14  4   46       .         
+
+Table of constants:
+501   0         
+502   44        
+
+Table of identificators:
+1001  G0001     
+1002  A0        
+1003  F         
+1004  GPR       
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........<error>
+"Parser: Error (line 2, column 9): 'identifier' expected  but '0' found"

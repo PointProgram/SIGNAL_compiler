@@ -1,0 +1,302 @@
+2   1   401      PROGRAM   
+2   9   1001     SIG01     
+2   14  59       ;         
+3   1   402      BEGIN     
+4   1   405      WHILE     
+4   8   1002     A0        
+4   11  301      <=        
+4   14  501      44        
+5   1   406      DO        
+6   2   408      IF        
+6   5   501      44        
+6   8   302      <>        
+6   11  501      44        
+7   2   409      THEN      
+8   3   405      WHILE     
+8   9   1003     GPR       
+8   13  61       =         
+8   15  1002     A0        
+9   3   406      DO        
+10  3   407      ENDWHILE  
+10  11  59       ;         
+11  3   405      WHILE     
+11  9   1003     GPR       
+11  13  61       =         
+11  15  1002     A0        
+12  3   406      DO        
+13  3   407      ENDWHILE  
+13  11  59       ;         
+14  2   404      ENDIF     
+14  7   59       ;         
+15  2   408      IF        
+15  5   501      44        
+15  8   302      <>        
+15  11  501      44        
+16  2   409      THEN      
+17  2   404      ENDIF     
+17  7   59       ;         
+18  1   407      ENDWHILE  
+18  9   59       ;         
+19  1   405      WHILE     
+19  7   1003     GPR       
+19  11  61       =         
+19  13  1002     A0        
+20  3   406      DO        
+21  1   407      ENDWHILE  
+21  9   59       ;         
+22  1   408      IF        
+22  4   501      44        
+22  7   302      <>        
+22  10  501      44        
+23  2   409      THEN      
+24  1   410      ELSE      
+25  1   404      ENDIF     
+25  6   59       ;         
+26  1   403      END       
+26  4   46       .         
+
+Table of constants:
+501   44        
+
+Table of identificators:
+1001  SIG01     
+1002  A0        
+1003  GPR       
+
+Parse tree:
+<signal-program>
+..<program>
+....401 PROGRAM
+....<procedure-identifier>
+......<identifier>
+........1001 SIG01
+....59 ;
+....<block>
+......<constant-declarations>
+........<empty>
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........405 WHILE
+..........<conditional-expression>
+............<expression>
+..............<variable-identifier>
+................<identifier>
+..................1002 A0
+............<comparassion operator>
+..............301 <=
+............<expression>
+..............<unsigned-integer>
+................501 44
+..........406 DO
+..........<statement-list>
+............<statement>
+..............<condition-statement>
+................<incomplete-condition-statement>
+..................408 IF
+..................<conditional-expression>
+....................<expression>
+......................<unsigned-integer>
+........................501 44
+....................<comparassion operator>
+......................302 <>
+....................<expression>
+......................<unsigned-integer>
+........................501 44
+..................409 THEN
+..................<statement-list>
+....................<statement>
+......................405 WHILE
+......................<conditional-expression>
+........................<expression>
+..........................<variable-identifier>
+............................<identifier>
+..............................1003 GPR
+........................<comparassion operator>
+..........................61 =
+........................<expression>
+..........................<variable-identifier>
+............................<identifier>
+..............................1002 A0
+......................406 DO
+......................<statement-list>
+........................<empty>
+......................407 ENDWHILE
+......................59 ;
+....................<statement-list>
+......................<statement><statement>
+........................405 WHILE
+........................<conditional-expression>
+..........................<expression>
+............................<variable-identifier>
+..............................<identifier>
+................................1003 GPR
+..........................<comparassion operator>
+............................61 =
+..........................<expression>
+............................<variable-identifier>
+..............................<identifier>
+................................1002 A0
+........................406 DO
+........................<statement-list>
+..........................<empty>
+........................407 ENDWHILE
+........................59 ;
+......................<statement-list>
+........................<statement><statement><empty>
+................<alternative-part>
+..................<empty>
+..............404 ENDIF
+..............59 ;
+............<statement-list>
+..............<statement><statement>
+................<condition-statement>
+..................<incomplete-condition-statement>
+....................408 IF
+....................<conditional-expression>
+......................<expression>
+........................<unsigned-integer>
+..........................501 44
+......................<comparassion operator>
+........................302 <>
+......................<expression>
+........................<unsigned-integer>
+..........................501 44
+....................409 THEN
+....................<statement-list>
+......................<empty>
+..................<alternative-part>
+....................<empty>
+................404 ENDIF
+................59 ;
+..............<statement-list>
+................<statement><statement><empty>
+..........407 ENDWHILE
+..........59 ;
+........<statement-list>
+..........<statement><statement>
+............405 WHILE
+............<conditional-expression>
+..............<expression>
+................<variable-identifier>
+..................<identifier>
+....................1003 GPR
+..............<comparassion operator>
+................61 =
+..............<expression>
+................<variable-identifier>
+..................<identifier>
+....................1002 A0
+............406 DO
+............<statement-list>
+..............<empty>
+............407 ENDWHILE
+............59 ;
+..........<statement-list>
+............<statement><statement><statement>
+..............<condition-statement>
+................<incomplete-condition-statement>
+..................408 IF
+..................<conditional-expression>
+....................<expression>
+......................<unsigned-integer>
+........................501 44
+....................<comparassion operator>
+......................302 <>
+....................<expression>
+......................<unsigned-integer>
+........................501 44
+..................409 THEN
+..................<statement-list>
+....................<empty>
+................<alternative-part>
+..................410 ELSE
+..................<statement-list>
+....................<empty>
+..............404 ENDIF
+..............59 ;
+............<statement-list>
+..............<statement><statement><statement><empty>
+......403 END
+....46 .
+
+
+;SIG01
+DATA SEGMENT
+	NOP
+DATA ENDS
+
+CODE SEGMENT
+	ASSUME DS: DATA CS:CODE
+START:
+	MOV AX, DATA
+	MOV DS, AX
+	XOR AX, AX
+CALL SIG01
+
+
+?L1: NOP
+"Code Generator: Error (line 4, column 8): var 'A0' is undefined"
+	MOV BX, 44
+	CMP AX, BX
+	JG ?L2
+
+	MOV AX, 44
+	MOV BX, 44
+	CMP AX, BX
+	JE ?L3
+
+?L4: NOP
+"Code Generator: Error (line 8, column 9): var 'GPR' is undefined"
+"Code Generator: Error (line 8, column 15): var 'A0' is undefined"
+	CMP AX, BX
+	JNE ?L5
+	NOP
+	JMP ?L4
+?L5: NOP
+
+?L6: NOP
+"Code Generator: Error (line 11, column 9): var 'GPR' is undefined"
+"Code Generator: Error (line 11, column 15): var 'A0' is undefined"
+	CMP AX, BX
+	JNE ?L7
+	NOP
+	JMP ?L6
+?L7: NOP
+	NOP
+?L3: NOP
+
+	MOV AX, 44
+	MOV BX, 44
+	CMP AX, BX
+	JE ?L8
+	NOP
+?L8: NOP
+	NOP
+	JMP ?L1
+?L2: NOP
+
+?L9: NOP
+"Code Generator: Error (line 19, column 7): var 'GPR' is undefined"
+"Code Generator: Error (line 19, column 13): var 'A0' is undefined"
+	CMP AX, BX
+	JNE ?L10
+	NOP
+	JMP ?L9
+?L10: NOP
+
+	MOV AX, 44
+	MOV BX, 44
+	CMP AX, BX
+	JE ?L11
+	NOP
+	JMP ?L12
+?L11: NOP
+	NOP
+?L12: NOP
+	NOP
+RET
+MOV AX, 4C00H
+INT 21H
+CODE ENDS
+END START
